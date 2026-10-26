@@ -11,7 +11,7 @@ export function readingNote(input: {
   datasetLabel: LabelId | null;
 }): string {
   const lines = [
-    "Nidus slice reading",
+    "Gray Matter slice reading",
     `File: ${input.fileName}`,
     `Call: ${CLASSES[input.label].name} (${percent.format(Math.max(...input.scores))})`,
   ];

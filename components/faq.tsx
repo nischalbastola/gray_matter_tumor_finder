@@ -2,9 +2,9 @@ import { Separator } from "@/components/ui/separator";
 
 export const FAQS = [
   {
-    question: "Is a Nidus result a diagnosis?",
+    question: "Is a Gray Matter result a diagnosis?",
     answer:
-      "No. Nidus scores one image against four labels from a public MRI dataset. A diagnosis needs the full study, the clinical history, and a qualified reader. This tool is not cleared as a medical device.",
+      "No. Gray Matter scores one image against four labels from a public MRI dataset. A diagnosis needs the full study, the clinical history, and a qualified reader. This tool is not cleared as a medical device.",
   },
   {
     question: "Does my scan get uploaded?",

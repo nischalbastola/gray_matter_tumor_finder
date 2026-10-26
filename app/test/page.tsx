@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/test" },
   openGraph: {
-    title: "Test set · Nidus",
+    title: "Test set · Gray Matter",
     description,
     url: "/test",
   },

@@ -5,7 +5,7 @@ export function SiteFooter() {
     <footer className="mt-8 border-t border-border">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-8 text-sm leading-6 text-[var(--muted-foreground)] sm:px-6">
         <p>
-          Nidus is a research demonstration. It is not a medical device, it is not a diagnosis, and it
+          Gray Matter is a research demonstration. It is not a medical device, it is not a diagnosis, and it
           is not a substitute for a radiologist. Do not use it to decide treatment, to rule a tumor in,
           or to rule a tumor out.
         </p>

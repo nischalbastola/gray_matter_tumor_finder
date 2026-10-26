@@ -16,7 +16,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "SoftwareApplication",
-      name: "Nidus",
+      name: "Gray Matter",
       applicationCategory: "EducationalApplication",
       operatingSystem: "Web",
       url: siteUrl(),
@@ -55,7 +55,7 @@ export default function HomePage() {
             Read one MRI slice. See which of the four labels it resembles.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/80 sm:text-lg">
-            Nidus scores glioma, meningioma, pituitary, or no tumor with a MobileNetV3-Small network trained on the
+            Gray Matter scores glioma, meningioma, pituitary, or no tumor with a MobileNetV3-Small network trained on the
             Nickparvar Brain Tumor MRI Dataset. The score is computed in your browser. It does not diagnose a patient.
           </p>
         </div>

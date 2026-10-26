@@ -1,6 +1,6 @@
-# Nidus
+# Gray Matter
 
-Nidus is a research demo that classifies one brain MRI slice as **glioma**, **meningioma**, **pituitary**, or **no tumor**. The network is MobileNetV3-Small, exported to ONNX, and the score is computed in the browser. A slice is not uploaded.
+Gray Matter is a research demo that classifies one brain MRI slice as **glioma**, **meningioma**, **pituitary**, or **no tumor**. The network is MobileNetV3-Small, exported to ONNX, and the score is computed in the browser. A slice is not uploaded.
 
 The checkpoint in this repo scores **93.2% accuracy** (macro F1 0.927) on the 1,311-image Testing folder. That folder was not used to train or to pick the checkpoint.
 

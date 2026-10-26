@@ -19,7 +19,7 @@ export default function Icon() {
           fontWeight: 700,
         }}
       >
-        N
+        G
       </div>
     ),
     { ...size },

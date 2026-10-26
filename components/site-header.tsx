@@ -6,7 +6,7 @@ export function SiteHeader() {
       <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2 text-sm font-medium tracking-wide text-primary uppercase">
           <span className="inline-block size-2.5 rounded-sm bg-primary" aria-hidden />
-          Nidus
+          Gray Matter
         </Link>
         <span className="rounded-full bg-secondary px-2.5 py-1 text-xs text-secondary-foreground ring-1 ring-foreground/10">
           Research only

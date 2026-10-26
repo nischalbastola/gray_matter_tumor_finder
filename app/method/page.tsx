@@ -8,12 +8,12 @@ const metrics = metricsJson as Metrics;
 export const metadata: Metadata = {
   title: "Method",
   description:
-    "How Nidus trains and evaluates a four-class brain MRI classifier on the Nickparvar dataset: crop, MobileNetV3-Small, a sealed test split, and the limits of a slice-level model.",
+    "How Gray Matter trains and evaluates a four-class brain MRI classifier on the Nickparvar dataset: crop, MobileNetV3-Small, a sealed test split, and the limits of a slice-level model.",
   alternates: { canonical: "/method" },
   openGraph: {
-    title: "Method · Nidus",
+    title: "Method · Gray Matter",
     description:
-      "Training protocol, preprocessing, and limits for the Nidus brain MRI tumor classifier.",
+      "Training protocol, preprocessing, and limits for the Gray Matter brain MRI tumor classifier.",
     url: "/method",
   },
 };
@@ -25,7 +25,7 @@ export default function MethodPage() {
         <p className="text-xs tracking-[0.16em] text-[var(--muted-foreground)] uppercase">Model card</p>
         <h1 className="mt-2 text-4xl sm:text-5xl">How this classifier was built</h1>
         <p className="mt-4 text-lg leading-8">
-          Nidus is a slice classifier, not a radiology workstation. One JPEG goes in. Four scores come out. This page
+          Gray Matter is a slice classifier, not a radiology workstation. One JPEG goes in. Four scores come out. This page
           is the protocol behind those scores.
         </p>
 
