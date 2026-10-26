@@ -14,17 +14,17 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#14130f",
-          color: "#f4efe6",
+          background: "#f4f7fb",
+          color: "#243044",
           padding: "72px",
         }}
       >
-        <div style={{ display: "flex", fontSize: 28, letterSpacing: 6, color: "#e7f56a" }}>NIDUS</div>
+        <div style={{ display: "flex", fontSize: 28, letterSpacing: 6, color: "#2f5678" }}>NIDUS</div>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div style={{ fontSize: 68, lineHeight: 1.05, maxWidth: 900 }}>Brain tumor MRI classifier</div>
-          <div style={{ fontSize: 28, color: "#b7b0a2" }}>Glioma · Meningioma · Pituitary · No tumor</div>
+          <div style={{ fontSize: 28, color: "#4d6074" }}>Glioma · Meningioma · Pituitary · No tumor</div>
         </div>
-        <div style={{ fontSize: 22, color: "#b7b0a2" }}>Research demo. Runs in the browser. Not a diagnosis.</div>
+        <div style={{ fontSize: 22, color: "#4d6074" }}>Research demo. Runs in the browser. Not a diagnosis.</div>
       </div>
     ),
     size,

@@ -43,76 +43,96 @@ const jsonLd = {
   ],
 };
 
+const percent = new Intl.NumberFormat("en", { style: "percent", maximumFractionDigits: 1 });
+
 export default function HomePage() {
   return (
-    <>
+    <div className="mx-auto flex w-full max-w-6xl flex-col px-4 py-8 sm:px-6 sm:py-12">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="console">
-        <div className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
-          <p className="text-xs tracking-[0.16em] text-[var(--signal)] uppercase">Axial brain MRI · four labels</p>
-          <h1 className="mt-2 max-w-3xl text-4xl leading-tight text-[var(--console-ink)] sm:text-6xl">
-            A slice-level call for glioma, meningioma, pituitary, or no tumor.
+      <header className="mb-8 flex flex-col gap-6 sm:mb-10">
+        <div className="max-w-3xl">
+          <h1 className="font-heading text-4xl leading-[1.05] tracking-tight sm:text-6xl">
+            Read one MRI slice. See which of the four labels it resembles.
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--console-muted)] sm:text-lg">
-            Nidus scores one MRI image with a MobileNetV3-Small network trained on the Nickparvar Brain Tumor MRI
-            Dataset. It runs entirely in your browser. It does not diagnose a patient.
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/80 sm:text-lg">
+            Nidus scores glioma, meningioma, pituitary, or no tumor with a MobileNetV3-Small network trained on the
+            Nickparvar Brain Tumor MRI Dataset. The score is computed in your browser. It does not diagnose a patient.
           </p>
-          <div className="mt-8">
-            <Scanner metrics={metrics} samples={samples} />
-          </div>
+        </div>
+        <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <Fact term="Held-out accuracy" detail={percent.format(metrics.accuracy)} />
+          <Fact term="Macro F1" detail={percent.format(metrics.macroF1)} />
+          <Fact term="Test slices" detail={metrics.testImages.toLocaleString("en")} />
+          <Fact term="Labels" detail="4" />
+        </dl>
+      </header>
+
+      <section aria-labelledby="lab-heading" className="flex flex-col gap-4">
+        <div>
+          <h2 id="lab-heading" className="font-heading text-3xl tracking-tight sm:text-4xl">
+            The reader
+          </h2>
+          <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
+            Weights stay in the page. A slice you drop here is not sent to a server.
+          </p>
+        </div>
+        <Scanner metrics={metrics} samples={samples} />
+      </section>
+
+      <section aria-labelledby="classes-heading" className="mt-14 border-t border-border pt-10 sm:mt-20">
+        <h2 id="classes-heading" className="font-heading text-3xl tracking-tight sm:text-4xl">
+          What the four labels mean
+        </h2>
+        <p className="mt-3 max-w-3xl text-base leading-7 text-muted-foreground">
+          These are teaching notes for the classes in the dataset, not imaging criteria you should apply to a patient.
+        </p>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          {CLASS_LIST.map((item) => (
+            <Card key={item.id} id={item.id}>
+              <CardHeader>
+                <p className="text-xs tracking-[0.14em] uppercase" style={{ color: item.tone }}>
+                  {item.short}
+                </p>
+                <CardTitle className="font-heading text-2xl">
+                  <h3>{item.name}</h3>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-base leading-7 text-muted-foreground">{item.detail}</CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
-      <div className="paper">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 py-14 sm:px-6 sm:py-20">
-          <section aria-labelledby="classes-heading">
-            <h2 id="classes-heading" className="text-3xl sm:text-4xl">
-              What the four labels mean
-            </h2>
-            <p className="mt-3 max-w-3xl text-base leading-7 text-[var(--muted-foreground)]">
-              These are teaching notes for the classes in the dataset, not imaging criteria you should apply to a
-              patient.
-            </p>
-            <div className="mt-6 grid gap-4 md:grid-cols-2">
-              {CLASS_LIST.map((item) => (
-                <Card key={item.id} id={item.id}>
-                  <CardHeader>
-                    <p className="text-xs tracking-[0.14em] uppercase" style={{ color: item.tone }}>
-                      {item.short}
-                    </p>
-                    <CardTitle className="text-2xl">
-                      <h3>{item.name}</h3>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-base leading-7 text-[var(--muted-foreground)]">{item.detail}</CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
-
-          <section aria-labelledby="metrics-heading">
-            <h2 id="metrics-heading" className="text-3xl sm:text-4xl">
-              Held-out test performance
-            </h2>
-            <p className="mt-3 max-w-3xl text-base leading-7 text-[var(--muted-foreground)]">
-              The Testing folder was not used to train or to pick the checkpoint. These figures describe that folder
-              only. They are not a promise about the next scanner, hospital, or patient.
-            </p>
-            <div className="mt-6">
-              <MetricsPanel metrics={metrics} />
-            </div>
-          </section>
-
-          <section aria-labelledby="faq-heading">
-            <h2 id="faq-heading" className="text-3xl sm:text-4xl">
-              Questions worth asking first
-            </h2>
-            <div className="mt-6 max-w-3xl">
-              <FaqList />
-            </div>
-          </section>
+      <section aria-labelledby="metrics-heading" className="mt-14 border-t border-border pt-10 sm:mt-20">
+        <h2 id="metrics-heading" className="font-heading text-3xl tracking-tight sm:text-4xl">
+          Held-out test performance
+        </h2>
+        <p className="mt-3 max-w-3xl text-base leading-7 text-muted-foreground">
+          The Testing folder was not used to train or to pick the checkpoint. These figures describe that folder only.
+          They are not a promise about the next scanner, hospital, or patient.
+        </p>
+        <div className="mt-6">
+          <MetricsPanel metrics={metrics} />
         </div>
-      </div>
-    </>
+      </section>
+
+      <section aria-labelledby="faq-heading" className="mt-14 border-t border-border pt-10 sm:mt-20">
+        <h2 id="faq-heading" className="font-heading text-3xl tracking-tight sm:text-4xl">
+          Questions worth asking first
+        </h2>
+        <div className="mt-6 max-w-3xl">
+          <FaqList />
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function Fact({ term, detail }: { term: string; detail: string }) {
+  return (
+    <div className="rounded-xl bg-card px-3 py-3 ring-1 ring-foreground/10">
+      <dt className="text-xs text-muted-foreground">{term}</dt>
+      <dd className="font-heading text-xl leading-tight sm:text-2xl">{detail}</dd>
+    </div>
   );
 }

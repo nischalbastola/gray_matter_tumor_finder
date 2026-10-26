@@ -1,33 +1,24 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
 
 export function SiteHeader() {
   return (
-    <header className="console sticky top-0 z-30 border-b border-white/10">
+    <header className="sticky top-0 z-30 border-b border-border/80 bg-background/85 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 sm:px-6">
-        <Link href="/" className="group flex items-center gap-2">
-          <span
-            aria-hidden
-            className="grid size-8 place-items-center rounded-full border border-[var(--signal)]/70 text-xs font-semibold text-[var(--signal)]"
-          >
-            N
-          </span>
-          <span className="text-lg tracking-tight text-[var(--console-ink)]">Nidus</span>
+        <Link href="/" className="flex items-center gap-2 text-sm font-medium tracking-wide text-primary uppercase">
+          <span className="inline-block size-2.5 rounded-sm bg-primary" aria-hidden />
+          Nidus
         </Link>
-        <Badge className="bg-[var(--signal)] text-[var(--console)] hover:bg-[var(--signal)]">
+        <span className="rounded-full bg-secondary px-2.5 py-1 text-xs text-secondary-foreground ring-1 ring-foreground/10">
           Research only
-        </Badge>
-        <nav className="ml-auto flex items-center gap-1 text-sm" aria-label="Primary">
-          <Link
-            href="/"
-            className="rounded-lg px-3 py-2 text-[var(--console-ink)] hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal)]"
-          >
+        </span>
+        <nav className="ml-auto flex items-center gap-4 text-sm text-muted-foreground" aria-label="Primary">
+          <Link href="/" className="underline-offset-4 hover:text-foreground hover:underline">
             Read a slice
           </Link>
-          <Link
-            href="/method"
-            className="rounded-lg px-3 py-2 text-[var(--console-muted)] hover:bg-white/10 hover:text-[var(--console-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal)]"
-          >
+          <Link href="/test" className="underline-offset-4 hover:text-foreground hover:underline">
+            Test set
+          </Link>
+          <Link href="/method" className="underline-offset-4 hover:text-foreground hover:underline">
             Method
           </Link>
         </nav>

@@ -1,3 +1,4 @@
+import { ConfusionMatrix } from "@/components/confusion-matrix";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CLASSES } from "@/lib/classes";
 import type { Metrics } from "@/lib/types";
@@ -35,41 +36,7 @@ export function MetricsPanel({ metrics }: { metrics: Metrics }) {
           <CardContent className="text-3xl tabular-nums">{metrics.testImages.toLocaleString("en")}</CardContent>
         </Card>
       </div>
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[36rem] border-collapse text-left text-sm">
-          <caption className="mb-3 text-left text-base text-[var(--foreground)]">
-            Confusion matrix on the held-out test set. Rows are the dataset label. Columns are the model call.
-          </caption>
-          <thead>
-            <tr>
-              <th className="border-b border-[var(--border)] py-2 pr-3 font-medium">Dataset label</th>
-              {metrics.labels.map((label) => (
-                <th key={label} className="border-b border-[var(--border)] px-2 py-2 font-medium">
-                  {CLASSES[label].name}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {metrics.confusionMatrix.map((row, rowIndex) => {
-              const label = metrics.labels[rowIndex];
-              return (
-                <tr key={label}>
-                  <th className="py-2 pr-3 font-medium">{CLASSES[label].name}</th>
-                  {row.map((count, columnIndex) => (
-                    <td
-                      key={`${label}-${metrics.labels[columnIndex]}`}
-                      className={`px-2 py-2 tabular-nums ${columnIndex === rowIndex ? "font-semibold" : "text-[var(--muted-foreground)]"}`}
-                    >
-                      {count}
-                    </td>
-                  ))}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      <ConfusionMatrix metrics={metrics} />
       <div className="overflow-x-auto">
         <table className="w-full min-w-[32rem] border-collapse text-left text-sm">
           <caption className="sr-only">Precision, recall, and F1 for each class on the test set.</caption>

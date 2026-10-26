@@ -26,7 +26,7 @@ Training uses the [Brain Tumor MRI Dataset](https://www.kaggle.com/datasets/maso
 
 `ml/download_dataset.py` can refresh a local copy from the Hugging Face mirror, or from Kaggle if you pass `--kaggle` and have a Kaggle API token.
 
-The raw images are not committed. The ONNX file, the held-out metrics, and a handful of test-slice examples are.
+The training images are not committed. The ONNX file, the held-out metrics, eight gallery slices, and the full 1,311-image Testing folder (`public/test-set`) are. Open `/test` in the running app to browse them. `python scripts/export_test_set.py` refreshes that folder from `data/Testing` after you download the dataset.
 
 ## Train again
 

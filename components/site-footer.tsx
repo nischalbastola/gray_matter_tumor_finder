@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[var(--border)] bg-[#efe7d8]">
+    <footer className="mt-8 border-t border-border">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-8 text-sm leading-6 text-[var(--muted-foreground)] sm:px-6">
         <p>
           Nidus is a research demonstration. It is not a medical device, it is not a diagnosis, and it

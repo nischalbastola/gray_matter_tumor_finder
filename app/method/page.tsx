@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function MethodPage() {
   return (
-    <article className="paper">
+    <article>
       <div className="mx-auto w-full max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
         <p className="text-xs tracking-[0.16em] text-[var(--muted-foreground)] uppercase">Model card</p>
         <h1 className="mt-2 text-4xl sm:text-5xl">How this classifier was built</h1>
@@ -91,7 +91,7 @@ export default function MethodPage() {
         </ul>
 
         <h2 className="mt-12 text-3xl">Citation</h2>
-        <pre className="mt-3 overflow-x-auto rounded-xl bg-[var(--console)] p-4 text-xs leading-5 text-[var(--console-ink)]">
+        <pre className="mt-3 overflow-x-auto rounded-xl bg-card p-4 text-xs leading-5 ring-1 ring-foreground/10">
           <code>{`@misc{nickparvar_brain_tumor_mri,
   author = {Nickparvar, Masoud},
   title = {Brain Tumor MRI Dataset},
@@ -104,6 +104,10 @@ export default function MethodPage() {
         <p className="mt-8 text-base leading-7">
           <Link className="underline underline-offset-4" href="/">
             Back to the reader
+          </Link>
+          {" · "}
+          <Link className="underline underline-offset-4" href="/test">
+            Browse the test set
           </Link>
         </p>
       </div>
