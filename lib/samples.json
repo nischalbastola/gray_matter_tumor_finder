@@ -1,0 +1,42 @@
+[
+  {
+    "src": "/samples/glioma-1.jpg",
+    "label": "glioma",
+    "file": "Te-gl_0095.jpg"
+  },
+  {
+    "src": "/samples/glioma-2.jpg",
+    "label": "glioma",
+    "file": "Te-gl_0199.jpg"
+  },
+  {
+    "src": "/samples/meningioma-1.jpg",
+    "label": "meningioma",
+    "file": "Te-me_0210.jpg"
+  },
+  {
+    "src": "/samples/meningioma-2.jpg",
+    "label": "meningioma",
+    "file": "Te-me_0135.jpg"
+  },
+  {
+    "src": "/samples/notumor-1.jpg",
+    "label": "notumor",
+    "file": "Te-no_0110.jpg"
+  },
+  {
+    "src": "/samples/notumor-2.jpg",
+    "label": "notumor",
+    "file": "Te-no_0257.jpg"
+  },
+  {
+    "src": "/samples/pituitary-1.jpg",
+    "label": "pituitary",
+    "file": "Te-pi_0116.jpg"
+  },
+  {
+    "src": "/samples/pituitary-2.jpg",
+    "label": "pituitary",
+    "file": "Te-pi_0091.jpg"
+  }
+]
